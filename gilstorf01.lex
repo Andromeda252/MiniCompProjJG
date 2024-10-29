@@ -22,6 +22,8 @@
 "+"         printf ("PLUS");
 "-"         printf ("MINUS");
 ";"         printf ("SEMI");
+"("         printf ("OPAREN");
+")"         printf ("CPAREN");
 [0-99]+     printf ("NUM");
 [a-z]+      printf ("VAR");
 .           printf ("JUNK");
