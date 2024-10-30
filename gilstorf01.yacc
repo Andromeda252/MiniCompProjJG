@@ -7,9 +7,5 @@
 
 %%
 
-
-
-%%
-
 main()
 yyerror()
