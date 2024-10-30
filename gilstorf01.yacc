@@ -7,7 +7,7 @@
 
 %%
 
-grammar rules actions
+
 
 %%
 
