@@ -7,6 +7,13 @@
 
 %%
 
+prog:   stmts
+
+stmts:  stmts
+        | stmt stmts
+
+%%  
+
 int main()
 {
     yyparse();
