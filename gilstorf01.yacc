@@ -15,8 +15,8 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt:   NUM             {printf("yep thats a number");}
-        | PLUS NUM      {printf("yep thats addition");}
+stmt:   VAR
+        | ASSIGN VAR    {printf("valid assignment\n");}
 
 %%  
 
