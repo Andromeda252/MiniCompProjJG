@@ -26,6 +26,7 @@
 ")"         printf ("CPAREN\n");
 [0-99]+     printf ("NUM\n");
 [a-z]+      printf ("VAR\n");
+\n          ;
 .           printf ("JUNK\n");
 
 %%
