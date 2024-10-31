@@ -71,7 +71,10 @@
     #include <stdio.h>
     #include <string.h>
 
-#line 75 "y.tab.c"
+    extern int yylex();
+    void yyerror(char *);
+
+#line 78 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -543,7 +546,7 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    10,    10,    12,    13,    15,    16
+       0,    13,    13,    15,    16,    18,    19
 };
 #endif
 
@@ -1332,19 +1335,19 @@ yyreduce:
   switch (yyn)
     {
   case 5:
-#line 15 "gilstorf01.yacc"
+#line 18 "gilstorf01.yacc"
                         {printf("yep thats a number");}
-#line 1338 "y.tab.c"
+#line 1341 "y.tab.c"
     break;
 
   case 6:
-#line 16 "gilstorf01.yacc"
+#line 19 "gilstorf01.yacc"
                         {printf("yep thats addition");}
-#line 1344 "y.tab.c"
+#line 1347 "y.tab.c"
     break;
 
 
-#line 1348 "y.tab.c"
+#line 1351 "y.tab.c"
 
       default: break;
     }
@@ -1576,10 +1579,15 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 18 "gilstorf01.yacc"
+#line 21 "gilstorf01.yacc"
   
 
 int main()
 {
     yyparse();
+}
+
+void yyerror (char *msg)
+{
+    printf("\n%s\n", msg);
 }
