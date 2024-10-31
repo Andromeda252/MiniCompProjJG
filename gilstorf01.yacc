@@ -9,6 +9,12 @@
 
 prog:   stmts
 
+stmts:  stmt
+        | stmt stmts
+
+stmt:   NUM             {printf("yep thats a number");}
+        | PLUS NUM      {printf("yep thats addition");}
+
 %%  
 
 int main()
