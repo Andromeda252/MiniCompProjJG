@@ -15,8 +15,9 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt:   VAR
-        | ASSIGN VAR    {printf("valid assignment\n");}
+stmt:   VAR                 {printf("valid variable\n");}
+        | ASSIGN VAR SEMI   {printf("valid assignment\n");}
+        | ASSIGN NUM SEMI   {printf("valid assignment\n");}
 
 %%  
 
