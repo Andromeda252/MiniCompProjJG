@@ -31,8 +31,3 @@
 .           printf ("JUNK\n");
 
 %%
-
-int main()
-{
-    while (yylex());
-}
