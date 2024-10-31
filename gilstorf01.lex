@@ -6,28 +6,28 @@
 
 %%
 
-"while"     printf("WHILE\n");
-"do"        printf("DO\n");
-"endwhile"  printf ("ENDWHILE\n");
-"if"        printf ("IF\n");
-"then"      printf ("THEN\n");
-"else"      printf ("ELSE\n");
-"endif"     printf ("ENDIF\n");
-"<"         printf ("LESS\n");
-"<="        printf ("LEQ\n");
-">"         printf ("GREATER\n");
-">="        printf ("GEQ\n");
-"<>"        printf ("NEQ\n");
-"=="        printf ("EQUAL\n");
-"="         printf ("ASSIGN\n");
-"+"         printf ("PLUS\n");
-"-"         printf ("MINUS\n");
-";"         printf ("SEMI\n");
-"("         printf ("OPAREN\n");
-")"         printf ("CPAREN\n");
-[0-99]+     printf ("NUM\n");
-[a-z]+      printf ("VAR\n");
+"while"     return WHILE;
+"do"        return DO;
+"endwhile"  return ENDWHILE;
+"if"        return IF;
+"then"      return THEN;
+"else"      return ELSE;
+"endif"     return ENDIF;
+"<"         return LESS;
+"<="        return LEQ;
+">"         return GREATER;
+">="        return GEQ;
+"<>"        return NEQ;
+"=="        return EQUAL;
+"="         return ASSIGN;
+"+"         return PLUS;
+"-"         return MINUS;
+";"         return SEMI;
+"("         return OPAREN;
+")"         return CPAREN;
+[0-99]+     return NUM;
+[a-z]+      return VAR;
 [ \n\t]+    ;
-.           printf ("JUNK\n");
+.           return JUNK;
 
 %%
