@@ -19,7 +19,7 @@ stmt:   VAR ASSIGN
         | VAR
         | NUM
         | PLUS VAR
-        | SEMI          {printf("valid assignment\n");}
+        | SEMI          {printf("the makefile edit was a success\n");}
 
 %%  
 
