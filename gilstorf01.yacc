@@ -23,14 +23,7 @@ stmt:   VAR ASSIGN
         | PLUS NUM
         | MINUS NUM
         | SEMI          {printf("valid assignment\n");}
-
-        NUM ASSIGN
-        | VAR
-        | NUM
-        | PLUS VAR
-        | MINUS VAR
-        | PLUS NUM
-        | MINUS NUM
+        | NUM ASSIGN
         | SEMI          {prinf("valid assignment\n");}
 
 %%  
