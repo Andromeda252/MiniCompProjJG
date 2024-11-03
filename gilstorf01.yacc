@@ -25,7 +25,7 @@ stmt:   VAR
         | SEMI          {printf("valid assignment\n");}
         | while_stmt
 
-while_stmt: WHILE DO
+while_stmt: WHILE OPAREN VAR EQUAL VAR CPAREN DO ENDWHILE
 
 %%  
 
