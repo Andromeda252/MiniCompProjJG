@@ -23,7 +23,9 @@ stmt:   VAR
         | PLUS NUM
         | MINUS NUM
         | SEMI          {printf("valid assignment\n");}
-        | WHILE DO
+        | while_stmt
+
+while_stmt: WHILE DO
 
 %%  
 
