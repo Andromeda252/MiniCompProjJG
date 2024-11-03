@@ -23,6 +23,7 @@ stmt:   VAR
         | PLUS NUM
         | MINUS NUM
         | SEMI          {printf("valid assignment\n");}
+        | WHILE DO
 
 %%  
 
