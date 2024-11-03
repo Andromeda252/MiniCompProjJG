@@ -15,8 +15,8 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt:   VAR ASSIGN              
-        | VAR
+stmt:   VAR              
+        | VAR ASSIGN
         | NUM
         | PLUS VAR
         | MINUS VAR
