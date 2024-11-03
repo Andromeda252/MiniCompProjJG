@@ -24,7 +24,6 @@ stmt:   VAR ASSIGN
         | MINUS NUM
         | SEMI          {printf("valid assignment\n");}
         | NUM ASSIGN
-        | SEMI          {prinf("valid assignment\n");}
 
 %%  
 
