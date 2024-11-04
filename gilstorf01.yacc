@@ -15,17 +15,14 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt:   VAR              
-        | VAR ASSIGN
-        | NUM
-        | PLUS VAR
-        | MINUS VAR
-        | PLUS NUM
-        | MINUS NUM
-        | SEMI          {printf("valid assignment\n");}
-        | while_stmt
+stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
 
-while_stmt: WHILE OPAREN VAR EQUAL VAR
+expr:   term
+        | term PLUS term
+        | term MINUS term
+
+term:   VAR
+        | NUM
 
 %%  
 
