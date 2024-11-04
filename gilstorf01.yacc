@@ -16,7 +16,7 @@ stmts:  stmt
         | stmt stmts
 
 stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
-        | OPAREN condition CPAREN {prinf("valid conditional\n");}
+        | OPAREN condition CPAREN {printf("valid conditional\n");}
 
 expr:   term
         | term PLUS term
