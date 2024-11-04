@@ -16,6 +16,7 @@ stmts:  stmt
         | stmt stmts
 
 stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
+        | OPAREN condition CPAREN
 
 expr:   term
         | term PLUS term
@@ -25,6 +26,9 @@ term:   VAR
         | NUM
         | term PLUS term
         | term MINUS term
+
+condition:  operand LESS operand
+            | operand LEQ operand
 
 %%  
 
