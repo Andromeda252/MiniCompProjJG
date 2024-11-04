@@ -30,6 +30,9 @@ term:   VAR
 condition:  operand LESS operand
             | operand LEQ operand
 
+operand:    VAR
+            | NUM
+
 %%  
 
 int main()
