@@ -23,8 +23,8 @@ expr:   term
         
 term:   VAR
         | NUM
-        | PLUS term
-        | MINUS term
+        | term PLUS term
+        | term MINUS term
 
 %%  
 
