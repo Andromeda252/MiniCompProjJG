@@ -4,7 +4,7 @@
 
     extern int yylex();
     void yyerror(char *);
-    int lineOfError;
+    int yylineno;
 %}
 
 %token WHILE DO ENDWHILE IF THEN ELSE ENDIF LESS LEQ GREATER GEQ NEQ EQUAL ASSIGN PLUS MINUS SEMI OPAREN CPAREN NUM VAR JUNK
@@ -52,5 +52,5 @@ int main()
 
 void yyerror (char *msg)
 {
-    printf("%s line %d\n", msg, lineOfError);
+    printf("%s line %d\n", msg, yylineno);
 }

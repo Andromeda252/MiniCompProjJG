@@ -2,7 +2,7 @@
     #include <stdio.h>
     #include <string.h>
     #include "y.tab.h"
-    extern int lineOfError;
+    extern int yylineno;
 %}
 
 %%
