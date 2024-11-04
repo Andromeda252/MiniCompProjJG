@@ -29,6 +29,10 @@ term:   VAR
 
 condition:  operand LESS operand
             | operand LEQ operand
+            | operand GREATER operand
+            | operand GEQ operand
+            | operand NEQ operand
+            | operand EQUAL operand
 
 operand:    VAR
             | NUM
