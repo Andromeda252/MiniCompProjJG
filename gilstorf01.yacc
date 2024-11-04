@@ -18,7 +18,7 @@ stmts:  stmt
 stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
         | WHILE conditional DO stmts ENDWHILE SEMI {printf("valid while\n");}
         | IF conditional THEN stmts ENDIF SEMI {printf("valid if then\n");}
-        | IF conditional THEN stmts ELSE stmts ENDIF SEMI {printf("valif if then else");}
+        | IF conditional THEN stmts ELSE stmts ENDIF SEMI {printf("valif if then else\n");}
 
 expr:   term
         | term PLUS term
