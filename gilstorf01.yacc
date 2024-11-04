@@ -20,11 +20,11 @@ stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
 expr:   term
         | term PLUS term
         | term MINUS term
-        | PLUS term
-        | MINUS term
-
+        
 term:   VAR
         | NUM
+        | PLUS term
+        | MINUS term
 
 %%  
 
