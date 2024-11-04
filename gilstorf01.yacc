@@ -51,5 +51,5 @@ int main()
 
 void yyerror (char *msg)
 {
-    printf("\n%s\n", msg);
+    printf("Syntax error line %d\n", msg);
 }
