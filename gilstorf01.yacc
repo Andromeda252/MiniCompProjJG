@@ -16,8 +16,8 @@ stmts:  stmt
         | stmt stmts
 
 stmt:   VAR ASSIGN expr SEMI {printf("valid assignment\n");}
-        | OPAREN condition CPAREN {printf("valid conditional\n");}
-
+        | WHILE conditional DO stmts ENDWHILE SEMI {printf("valid while\n");}
+        
 expr:   term
         | term PLUS term
         | term MINUS term
@@ -26,6 +26,9 @@ term:   VAR
         | NUM
         | term PLUS term
         | term MINUS term
+
+conditional:  OPAREN condition CPAREN {printf("valid conditional\n");}
+
 
 condition:  operand LESS operand
             | operand LEQ operand
