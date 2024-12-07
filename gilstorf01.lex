@@ -29,7 +29,9 @@
 "("         { printf ("lex found oparen\n"); return OPAREN; }
 ")"         { printf ("lex found cparen\n"); return CPAREN; }
 [0-99]+     { printf ("lex found num\n"); return NUM; }
-[a-z]+      { printf ("lex found var\n"); return VAR; }
+[a-z]+      { printf ("lex found var\n");
+              strcpy (varname, yytext);
+              return VAR; }
 [ \n\t]+    ;
 .           return JUNK;
 
