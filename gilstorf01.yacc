@@ -19,7 +19,7 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt: var EQUAL mexpr SEMI {printf("yacc found stmt\n");
+stmt: var ASSIGN mexpr SEMI {printf("yacc found stmt\n");
                             printf("MOV %s, R0\n", destination);}
 
 mexpr: var1 PLUS var2 {printf("yacc found mexpr\n");}
