@@ -5,7 +5,7 @@
 
     extern int yylineno;
     extern char varname[];
-    extern int yylval;
+    extern YYSTYPE yylval;
 %}
 
 %%
