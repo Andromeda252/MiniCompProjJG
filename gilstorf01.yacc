@@ -33,9 +33,9 @@ mexpr: var1 PLUS var2 {printf("yacc found mexpr\n");}
 
 
 var1: VAR {printf("MOV R1, %s\n", varname);}
-      | NUM {printf("MOV R1, %s\n", varname);}
+      | NUM {printf("MOV R1, %d\n", $1);}
 var2: VAR {printf("ADD R1, %s\n", varname);}
-      | NUM {printf("ADD R1, %s\n", varname);}
+      | NUM {printf("ADD R1, %d\n", $1);}
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
