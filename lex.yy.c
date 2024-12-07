@@ -473,8 +473,11 @@ char *yytext;
     #include <stdio.h>
     #include <string.h>
     #include "y.tab.h"
-#line 477 "lex.yy.c"
-#line 478 "lex.yy.c"
+
+    extern int yylineno;
+    extern char varname[];
+#line 480 "lex.yy.c"
+#line 481 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -691,10 +694,10 @@ YY_DECL
 		}
 
 	{
-#line 7 "gilstorf01.lex"
+#line 10 "gilstorf01.lex"
 
 
-#line 698 "lex.yy.c"
+#line 701 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -753,126 +756,126 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "gilstorf01.lex"
-return WHILE;
+#line 12 "gilstorf01.lex"
+{ printf ("lex found while\n"); return WHILE; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "gilstorf01.lex"
-return DO;
+#line 13 "gilstorf01.lex"
+{ printf ("lex found do \n"); return DO; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "gilstorf01.lex"
-return ENDWHILE;
+#line 14 "gilstorf01.lex"
+{ printf ("lex found endwhile\n"); return ENDWHILE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "gilstorf01.lex"
-return IF;
+#line 15 "gilstorf01.lex"
+{ printf ("lex found if\n"); return IF; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 "gilstorf01.lex"
-return THEN;
+#line 16 "gilstorf01.lex"
+{ printf ("lex found then\n"); return THEN; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 "gilstorf01.lex"
-return ELSE;
+#line 17 "gilstorf01.lex"
+{ printf ("lex found else\n"); return ELSE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 15 "gilstorf01.lex"
-return ENDIF;
+#line 18 "gilstorf01.lex"
+{ printf ("lex found endif\n"); return ENDIF; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 16 "gilstorf01.lex"
-return LESS;
+#line 19 "gilstorf01.lex"
+{ printf ("lex found less\n"); return LESS; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 17 "gilstorf01.lex"
-return LEQ;
+#line 20 "gilstorf01.lex"
+{ printf ("lex found leq\n"); return LEQ; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 18 "gilstorf01.lex"
-return GREATER;
+#line 21 "gilstorf01.lex"
+{ printf ("lex found greater\n"); return GREATER; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 19 "gilstorf01.lex"
-return GEQ;
+#line 22 "gilstorf01.lex"
+{ printf ("lex found geq\n"); return GEQ; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 20 "gilstorf01.lex"
-return NEQ;
+#line 23 "gilstorf01.lex"
+{ printf ("lex found NEQ\n"); return NEQ; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 21 "gilstorf01.lex"
-return EQUAL;
+#line 24 "gilstorf01.lex"
+{ printf ("lex found equal\n"); return EQUAL; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 22 "gilstorf01.lex"
-return ASSIGN;
+#line 25 "gilstorf01.lex"
+{ printf ("lex found assign\n"); return ASSIGN; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 23 "gilstorf01.lex"
-return PLUS;
+#line 26 "gilstorf01.lex"
+{ printf ("lex found plus\n"); return PLUS; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 24 "gilstorf01.lex"
-return MINUS;
+#line 27 "gilstorf01.lex"
+{ printf ("lex found minus\n"); return MINUS; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 25 "gilstorf01.lex"
-return SEMI;
+#line 28 "gilstorf01.lex"
+{ printf ("lex found semi\n"); return SEMI; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 26 "gilstorf01.lex"
-return OPAREN;
+#line 29 "gilstorf01.lex"
+{ printf ("lex found oparen\n"); return OPAREN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 27 "gilstorf01.lex"
-return CPAREN;
+#line 30 "gilstorf01.lex"
+{ printf ("lex found cparen\n"); return CPAREN; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 28 "gilstorf01.lex"
-return NUM;
+#line 31 "gilstorf01.lex"
+{ printf ("lex found num\n"); return NUM; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 29 "gilstorf01.lex"
-return VAR;
+#line 32 "gilstorf01.lex"
+{ printf ("lex found var\n"); return VAR; }
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 30 "gilstorf01.lex"
+#line 33 "gilstorf01.lex"
 ;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 31 "gilstorf01.lex"
+#line 34 "gilstorf01.lex"
 return JUNK;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 33 "gilstorf01.lex"
+#line 36 "gilstorf01.lex"
 ECHO;
 	YY_BREAK
-#line 876 "lex.yy.c"
+#line 879 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1877,5 +1880,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 33 "gilstorf01.lex"
+#line 36 "gilstorf01.lex"
 
