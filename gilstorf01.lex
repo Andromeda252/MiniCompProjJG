@@ -29,8 +29,8 @@
 ";"         { printf ("lex found semi\n"); return SEMI; }
 "("         { printf ("lex found oparen\n"); return OPAREN; }
 ")"         { printf ("lex found cparen\n"); return CPAREN; }
-[0-99]+     { printf ("lex found num\n");
-              yylval = atoi(yytext);
+[0-9]+     { printf ("lex found num\n");
+              yylval.ival = atoi(yytext);
               return NUM; }
 [a-z]+      { printf ("lex found var\n");
               strcpy (varname, yytext);

@@ -9,9 +9,9 @@
     char varname[20];
     char destination[20];
 
-    (%union {
+    %union {
         int ival;
-    })
+    }
 %}
 
 %token <ival> NUM
