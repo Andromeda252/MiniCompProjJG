@@ -30,7 +30,7 @@
 "("         { printf ("lex found oparen\n"); return OPAREN; }
 ")"         { printf ("lex found cparen\n"); return CPAREN; }
 [0-99]+     { printf ("lex found num\n");
-              strcpy (num, yytext);
+              intcpy (num, yytext);
               return NUM; }
 [a-z]+      { printf ("lex found var\n");
               strcpy (varname, yytext);
