@@ -28,6 +28,7 @@ var1: VAR {printf("MOV R0, %s\n", varname);}
 var2: VAR {printf("ADD R0, %s\n", varname);}
 
 var: VAR {strcpy(destination, varname);}
+     | NUM {strcpy(destination, varname);}
 
 %%  
 
