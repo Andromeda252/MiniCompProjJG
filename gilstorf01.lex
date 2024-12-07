@@ -5,6 +5,7 @@
 
     extern int yylineno;
     extern char varname[];
+    extern int num;
 %}
 
 %%
@@ -28,7 +29,9 @@
 ";"         { printf ("lex found semi\n"); return SEMI; }
 "("         { printf ("lex found oparen\n"); return OPAREN; }
 ")"         { printf ("lex found cparen\n"); return CPAREN; }
-[0-99]+     { printf ("lex found num\n"); return NUM; }
+[0-99]+     { printf ("lex found num\n");
+              strcpy (num, yytext);
+              return NUM; }
 [a-z]+      { printf ("lex found var\n");
               strcpy (varname, yytext);
               return VAR; }
