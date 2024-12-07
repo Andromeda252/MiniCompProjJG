@@ -14,6 +14,21 @@
 
 %%
 
+prog:   stmts
+
+stmts:  stmt
+        | stmt stmts
+
+stmt: var EQUAL mexpr SEMI {printf("yacc found stmt\n");
+                            printf("MOV %s, R0\n", destination);}
+
+mexpr: var1 PLUS var2 {printf("yacc found mexpr\n");}
+
+var1: VAR {printf("MOV R0, %s\n", varname);}
+var2: VAR {printf("ADD R0, %s\n", varname);}
+
+var: VAR {strcpy(destination, varname);}
+
 %%  
 
 int main()
