@@ -8,6 +8,7 @@
     int yylineno;
     char varname[20];
     char destination[20];
+    int valDest;
 %}
 
 %union {
@@ -37,7 +38,7 @@ var2: VAR {printf("ADD R1, %s\n", varname);}
       | NUM {printf("ADD R1, %s\n", varname);}
 
 var: VAR {strcpy(destination, varname);}
-     | NUM {destination = $1;}
+     | NUM {valDest = $1;}
 
 %%  
 
