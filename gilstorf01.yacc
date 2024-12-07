@@ -25,7 +25,9 @@ stmt: var EQUAL mexpr SEMI {printf("yacc found stmt\n");
 mexpr: var1 PLUS var2 {printf("yacc found mexpr\n");}
 
 var1: VAR {printf("MOV R0, %s\n", varname);}
+      | NUM {strcpy(destination, varname);}
 var2: VAR {printf("ADD R0, %s\n", varname);}
+      | NUM {strcpy(destination, varname);}
 
 var: VAR {strcpy(destination, varname);}
      | NUM {strcpy(destination, varname);}
