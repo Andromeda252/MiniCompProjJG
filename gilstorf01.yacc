@@ -8,8 +8,13 @@
     int yylineno;
     char varname[20];
     char destination[20];
+
+    %union {
+        int ival;
+    }
 %}
 
+%token <ival> NUM
 %token WHILE DO ENDWHILE IF THEN ELSE ENDIF LESS LEQ GREATER GEQ NEQ EQUAL ASSIGN PLUS MINUS SEMI OPAREN CPAREN NUM VAR JUNK
 
 %%
