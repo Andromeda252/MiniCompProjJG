@@ -25,12 +25,12 @@ prog:   stmts
 stmts:  stmt
         | stmt stmts
 
-stmt: var ASSIGN mexpr SEMI {printf("yacc found stmt\n");
+stmt: var ASSIGN expr SEMI {printf("yacc found stmt\n");
                             printf("MOV %s, R1\n", destination);}
 
-mexpr: var1 {printf("yacc found mexpr\n");}
-       | var1 PLUS varP {printf("yacc found mexpr\n");}
-       | var1 MINUS varM {printf("yacc found mexpr\n");}
+expr: var1 {printf("yacc found expr\n");}
+       | var1 PLUS varP {printf("yacc found expr\n");}
+       | var1 MINUS varM {printf("yacc found expr\n");}
 
 
 var1: VAR {printf("MOV R1, %s\n", varname);}
