@@ -29,7 +29,7 @@ stmt: var ASSIGN expr SEMI {printf("yacc found stmt\n");
                             printf("MOV %s, R1\n", destination);}
       | WHILE wconditional DO stmts ENDWHILE SEMI {printf("yacc found stmt\n");
                                                    printf("JMP wtop1\n");
-                                                   printf("end1:\n")}
+                                                   printf("end1:\n");}
 
 expr: var1 {printf("yacc found expr\n");}
        | var1 PLUS varP {printf("yacc found expr\n");}
