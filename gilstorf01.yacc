@@ -29,16 +29,18 @@ stmt: var ASSIGN mexpr SEMI {printf("yacc found stmt\n");
                             printf("MOV %s, R1\n", destination);}
 
 mexpr: var1 {printf("yacc found mexpr\n");}
-       | var1 PLUS var2 {printf("yacc found mexpr\n");}
-       | var1 MINUS var2 {printf("yacc found mexpr\n");}
+       | var1 PLUS varP {printf("yacc found mexpr\n");}
+       | var1 MINUS varM {printf("yacc found mexpr\n");}
 
 
 var1: VAR {printf("MOV R1, %s\n", varname);}
       | NUM {printf("MOV R1, %d\n", $1);}
-var2: VAR {printf("ADD R1, %s\n", varname);}
+varP: VAR {printf("ADD R1, %s\n", varname);}
       | NUM {printf("ADD R1, %d\n", $1);}
-      | var2 PLUS var2
-      | var2 MINUS var2
+      | varP PLUS varP
+varM: VAR {printf("SUB R1, %s\n", varname);}
+      | NUM {printf("SUB R1, %d\n", $1);}
+      | varM MINUS varM 
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
