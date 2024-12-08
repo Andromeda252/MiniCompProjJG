@@ -27,11 +27,11 @@ stmts:  stmt
 
 stmt: var ASSIGN expr SEMI {printf("yacc found stmt\n");
                             printf("MOV %s, R1\n", destination);}
+      | WHILE conditional DO stmts ENDWHILE SEMI {printf("yacc found stmt\n");}
 
 expr: var1 {printf("yacc found expr\n");}
        | var1 PLUS varP {printf("yacc found expr\n");}
        | var1 MINUS varM {printf("yacc found expr\n");}
-
 
 var1: VAR {printf("MOV R1, %s\n", varname);}
       | NUM {printf("MOV R1, %d\n", $1);}
@@ -46,6 +46,13 @@ varM: VAR {printf("SUB R1, %s\n", varname);}
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
+
+conditional:  OPAREN condition CPAREN
+
+condition:  operand LESS operand
+
+operand:    VAR
+            | NUM
 
 %%  
 
