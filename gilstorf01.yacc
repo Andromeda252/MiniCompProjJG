@@ -38,9 +38,11 @@ var1: VAR {printf("MOV R1, %s\n", varname);}
 varP: VAR {printf("ADD R1, %s\n", varname);}
       | NUM {printf("ADD R1, %d\n", $1);}
       | varP PLUS varP
+      | varP MINUS varM
 varM: VAR {printf("SUB R1, %s\n", varname);}
       | NUM {printf("SUB R1, %d\n", $1);}
-      | varM MINUS varM 
+      | varM MINUS varM
+      | varM MINUS varP
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
