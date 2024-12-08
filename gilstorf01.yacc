@@ -37,8 +37,8 @@ var1: VAR {printf("MOV R1, %s\n", varname);}
       | NUM {printf("MOV R1, %d\n", $1);}
 var2: VAR {printf("ADD R1, %s\n", varname);}
       | NUM {printf("ADD R1, %d\n", $1);}
-      | var1 PLUS var2
-      | var1 MINUS var2
+      | var2 PLUS var2
+      | var2 MINUS var2
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
