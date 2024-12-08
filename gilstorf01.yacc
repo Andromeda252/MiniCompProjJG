@@ -42,7 +42,7 @@ varP: VAR {printf("ADD R1, %s\n", varname);}
 varM: VAR {printf("SUB R1, %s\n", varname);}
       | NUM {printf("SUB R1, %d\n", $1);}
       | varM MINUS varM
-      | varM MINUS varP
+      | varM PLUS varP
 
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
