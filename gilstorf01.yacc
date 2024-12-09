@@ -28,7 +28,9 @@ stmts:  stmt
 stmt: var ASSIGN expr SEMI {printf("MOV %s, R1\n", destination);}
       | WHILE wconditional DO stmts ENDWHILE SEMI {printf("JMP wtop1\n");
                                                    printf("end1:\n");}
-      | IF ifconditional THEN stmts ENDIF SEMI {printf("end1:\n");}
+      | IF ifconditional THEN stmts ENDIF SEMI {printf("JMP end1:\n");
+                                                printf("else1:\n");
+                                                printf("end1:\n");}
 
 expr: var1
        | var1 PLUS varP
@@ -56,37 +58,37 @@ wcondition:  operand LESS operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BGE end1\n");
+                                   printf("BGE else1\n");
                                    }
             | operand LEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BGT end1\n");
+                                   printf("BGT else1\n");
                                    }
             | operand GREATER operand {printf("wtop1:\n");
                                        printf("MOV R8, %s\n", destination);
                                        printf("MOV R7, %d\n", valDest);
                                        printf("CMP R7\n");
-                                       printf("BLE end1\n");
+                                       printf("BLE else1\n");
                                        }
             | operand GEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BLT end1\n");
+                                   printf("BLT else1\n");
                                    }
             | operand NEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BNE end1\n");
+                                   printf("BNE else1\n");
                                    }
             | operand EQUAL operand {printf("wtop1:\n");
                                      printf("MOV R8, %s\n", destination);
                                      printf("MOV R7, %d\n", valDest);
                                      printf("CMP R7\n");
-                                     printf("BEQ end1\n");
+                                     printf("BEQ else1\n");
                                      }
 
 ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
