@@ -32,8 +32,7 @@ stmt: var ASSIGN expr SEMI {printf("MOV %s, R1\n", destination);}
                                                 printf("else1:\n");
                                                 printf("end1:\n");}
       | IF ifconditional THEN stmts ELSE {printf("JMP end1\n");
-                                          printf("else1:\n");}
-      | stmts ENDIF SEMI {printf("end1:\n");}
+                                          printf("else1:\n");} stmts ENDIF SEMI {printf("end1:\n");}
 
 expr: var1
        | var1 PLUS varP
