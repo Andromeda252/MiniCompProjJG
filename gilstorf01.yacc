@@ -28,6 +28,7 @@ stmts:  stmt
 stmt: var ASSIGN expr SEMI {printf("MOV %s, R1\n", destination);}
       | WHILE wconditional DO stmts ENDWHILE SEMI {printf("JMP wtop1\n");
                                                    printf("end1:\n");}
+      | IF conditional THEN stmts ENDIF SEMI {printf("end1:\n");}
 
 expr: var1
        | var1 PLUS varP
@@ -48,6 +49,8 @@ var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
 
 wconditional:  OPAREN wcondition CPAREN
+
+ifconditional: OPAREN ifcondition CPAREN
 
 wcondition:  operand LESS operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
@@ -85,6 +88,16 @@ wcondition:  operand LESS operand {printf("wtop1:\n");
                                      printf("CMP R7\n");
                                      printf("BEQ end1\n");
                                      }
+
+ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
+                                   printf("MOV R7, %d\n", valDest);
+                                   printf("CMP R7\n");
+                                   printf("BGE end1\n");}
+            | operand LEQ operand
+            | operand GREATER operand
+            | operand GEQ operand
+            | operand NEQ operand
+            | operand EQUAL operand
 
 operand:    VAR {strcpy(destination, varname);}
             | NUM {valDest = $1;}
