@@ -28,10 +28,12 @@ stmts:  stmt
 stmt: var ASSIGN expr SEMI {printf("MOV %s, R1\n", destination);}
       | WHILE wconditional DO stmts ENDWHILE SEMI {printf("JMP wtop1\n");
                                                    printf("end1:\n");}
-      | IF ifconditional THEN stmts ENDIF SEMI {printf("JMP end1:\n");
+      | IF ifconditional THEN stmts ENDIF SEMI {printf("JMP end1\n");
                                                 printf("else1:\n");
                                                 printf("end1:\n");}
-      | IF ifconditional THEN stmts ELSE stmts ENDIF SEMI {printf("endelse:\n");}
+      | IF ifconditional THEN stmts ELSE {printf("JMP end1\n");
+                                          printf("else1:\n");}
+      | stmts ENDIF SEMI {printf("end1:\n");}
 
 expr: var1
        | var1 PLUS varP
