@@ -63,37 +63,37 @@ wcondition:  operand LESS operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BGE end1\n");
+                                   printf("BGE end%d\n", count);
                                    }
             | operand LEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BGT end1\n");
+                                   printf("BGT end%d\n", count);
                                    }
             | operand GREATER operand {printf("wtop1:\n");
                                        printf("MOV R8, %s\n", destination);
                                        printf("MOV R7, %d\n", valDest);
                                        printf("CMP R7\n");
-                                       printf("BLE end1\n");
+                                       printf("BLE end%d\n", count);
                                        }
             | operand GEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BLT end1\n");
+                                   printf("BLT end%d\n", count);
                                    }
             | operand NEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BNE end1\n");
+                                   printf("BNE end%d\n", count);
                                    }
             | operand EQUAL operand {printf("wtop1:\n");
                                      printf("MOV R8, %s\n", destination);
                                      printf("MOV R7, %d\n", valDest);
                                      printf("CMP R7\n");
-                                     printf("BEQ end1\n");
+                                     printf("BEQ end%d\n", count);
                                      }
 
 ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
