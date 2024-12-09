@@ -10,7 +10,7 @@
     char destination[20];
     int valDest;
 
-    int count = 0;
+    int count = 1;
 %}
 
 %union {
