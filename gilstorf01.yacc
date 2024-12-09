@@ -9,6 +9,8 @@
     char varname[20];
     char destination[20];
     int valDest;
+
+    int count = 0;
 %}
 
 %union {
@@ -53,9 +55,9 @@ varM: VAR {printf("SUB R1, %s\n", varname);}
 var: VAR {strcpy(destination, varname);}
      | NUM {valDest = $1;}
 
-wconditional:  OPAREN wcondition CPAREN
+wconditional:  OPAREN wcondition CPAREN {count++}
 
-ifconditional: OPAREN ifcondition CPAREN
+ifconditional: OPAREN ifcondition CPAREN {count++}
 
 wcondition:  operand LESS operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
