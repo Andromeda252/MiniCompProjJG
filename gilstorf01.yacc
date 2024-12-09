@@ -53,25 +53,25 @@ wcondition:  operand LESS operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BLT end1\n");
+                                   printf("BGE end1\n");
                                    }
             | operand LEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BLE end1\n");
+                                   printf("BGT end1\n");
                                    }
             | operand GREATER operand {printf("wtop1:\n");
                                        printf("MOV R8, %s\n", destination);
                                        printf("MOV R7, %d\n", valDest);
                                        printf("CMP R7\n");
-                                       printf("BGT end1\n");
+                                       printf("BLE end1\n");
                                        }
             | operand GEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
                                    printf("CMP R7\n");
-                                   printf("BGE end1\n");
+                                   printf("BLT end1\n");
                                    }
             | operand NEQ operand {printf("wtop1:\n");
                                    printf("MOV R8, %s\n", destination);
