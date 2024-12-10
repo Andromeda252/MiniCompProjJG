@@ -69,36 +69,36 @@ wcondition:  operand {printf("wtop%d:\n", whileCount);
                                     printf("CMP R7\n");
                                     printf("BGE end%d\n", endCount);
                                     }
-            | operand LEQ operand {printf("wtop%d:\n", whileCount);
-                                   printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BGT end%d\n", endCount);
-                                   }
-            | operand GREATER operand {printf("wtop%d:\n", whileCount);
-                                       printf("MOV R8, %s\n", destination);
-                                       printf("MOV R7, %d\n", valDest);
-                                       printf("CMP R7\n");
-                                       printf("BLE end%d\n", endCount);
-                                       }
-            | operand GEQ operand {printf("wtop%d:\n", whileCount);
-                                   printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BLT end%d\n", endCount);
-                                   }
-            | operand NEQ operand {printf("wtop%d:\n", whileCount);
-                                   printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BNE end%d\n", endCount);
-                                   }
-            | operand EQUAL operand {printf("wtop%d:\n", whileCount);
-                                     printf("MOV R8, %s\n", destination);
-                                     printf("MOV R7, %d\n", valDest);
-                                     printf("CMP R7\n");
-                                     printf("BEQ end%d\n", endCount);
-                                     }
+            | operand {printf("wtop%d:\n", whileCount);
+                       printf("MOV R8, %s\n", destination);}
+                       LEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BGT end%d\n", endCount);
+                                    }
+            | operand {printf("wtop%d:\n", whileCount);
+                       printf("MOV R8, %s\n", destination);}
+                       GREATER operand {printf("MOV R7, %s\n", destination);
+                                        printf("CMP R7\n");
+                                        printf("BLE end%d\n", endCount);
+                                        }
+            | operand {printf("wtop%d:\n", whileCount);
+                       printf("MOV R8, %s\n", destination);}
+                       GEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BLT end%d\n", endCount);
+                                    }
+            | operand {printf("wtop%d:\n", whileCount);
+                       printf("MOV R8, %s\n", destination);}
+                       NEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BNE end%d\n", endCount);
+                                    }
+            | operand {printf("wtop%d:\n", whileCount);
+                       printf("MOV R8, %s\n", destination);}
+                       EQUAL operand {printf("MOV R7, %s\n", destination);
+                                      printf("CMP R7\n");
+                                      printf("BEQ end%d\n", endCount);
+                                      }
 
 ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
