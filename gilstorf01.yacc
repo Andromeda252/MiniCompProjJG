@@ -100,30 +100,30 @@ wcondition:  operand {printf("wtop%d:\n", whileCount);
                                       printf("BEQ end%d\n", endCount);
                                       }
 
-ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BGE else%d\n", elseCount);}
-            | operand LEQ operand {printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BGT else%d\n", elseCount);}
-            | operand GREATER operand {printf("MOV R8, %s\n", destination);
-                                       printf("MOV R7, %d\n", valDest);
-                                       printf("CMP R7\n");
-                                       printf("BLE else%d\n", elseCount);}
-            | operand GEQ operand {printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BLT else%d\n", elseCount);}
-            | operand NEQ operand {printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BNE else%d\n", elseCount);}
-            | operand EQUAL operand {printf("MOV R8, %s\n", destination);
-                                     printf("MOV R7, %d\n", valDest);
-                                     printf("CMP R7\n");
-                                     printf("BEQ else%d\n", elseCount);}
+ifcondition: operand {printf("MOV R8, %s\n", destination);}
+                      LESS operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BGE else%d\n", elseCount);}
+            | operand {printf("MOV R8, %s\n", destination);}
+                       LEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BGT else%d\n", elseCount);}
+            | operand {printf("MOV R8, %s\n", destination);}
+                       GREATER operand {printf("MOV R7, %s\n", destination);
+                                        printf("CMP R7\n");
+                                        printf("BLE else%d\n", elseCount);}
+            | operand {printf("MOV R8, %s\n", destination);}
+                       GEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BLT else%d\n", elseCount);}
+            | operand {printf("MOV R8, %s\n", destination);}
+                       NEQ operand {printf("MOV R7, %s\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BNE else%d\n", elseCount);}
+            | operand {printf("MOV R8, %s\n", destination);} 
+                       EQUAL operand {printf("MOV R7, %s\n", destination);
+                                      printf("CMP R7\n");
+                                      printf("BEQ else%d\n", elseCount);}
 
 operand:    VAR {strcpy(destination, varname);}
             | NUM {valDest = $1;
