@@ -126,7 +126,7 @@ ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
                                      printf("BEQ else%d\n", elseCount);}
 
 operand:    VAR {strcpy(destination, varname);}
-            | NUM {destination = $1.integer;}
+            | NUM {sprintf(destination, "%d", $1.integer;)}
 
 %%  
 
