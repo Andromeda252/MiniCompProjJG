@@ -2,8 +2,8 @@
     #include <stdio.h>
     #include <string.h>
     #include "y.tab.h"
-    #define YY_USER_ACTION yylloc.first_line = yylineno;
 
+    extern int yylineno;
     extern char varname[];
     extern YYSTYPE yylval;
 %}
@@ -37,7 +37,3 @@
 .           return JUNK;
 
 %%
-
-int yywrap() {
-    return 1;
-}
