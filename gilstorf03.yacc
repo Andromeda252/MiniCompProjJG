@@ -64,8 +64,8 @@ ifconditional: OPAREN ifcondition CPAREN {elseCount++;
                                           endCount++;}
 
 wcondition:  operand {printf("wtop%d:\n", whileCount);
-                      printf("MOV R8, %s%d\n", destination);}
-                      LESS operand {printf("MOV R7, %s%d\n", destination);
+                      printf("MOV R8, %s\n", destination);}
+                      LESS operand {printf("MOV R7, %d\n", destination);
                                     printf("CMP R7\n");
                                     printf("BGE end%d\n", endCount);
                                     }
