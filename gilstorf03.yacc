@@ -8,7 +8,7 @@
     int yylineno;
     char varname[20];
     char destination[20];
-    int valDest;
+    int valDest = 0;
 
     int endCount = 1;
     int whileCount = 1;
@@ -63,12 +63,12 @@ wconditional:  OPAREN wcondition CPAREN {whileCount++;
 ifconditional: OPAREN ifcondition CPAREN {elseCount++;
                                           endCount++;}
 
-wcondition:  operand LESS operand {printf("wtop%d:\n", whileCount);
-                                   printf("MOV R8, %s\n", destination);
-                                   printf("MOV R7, %d\n", valDest);
-                                   printf("CMP R7\n");
-                                   printf("BGE end%d\n", endCount);
-                                   }
+wcondition:  operand {printf("wtop%d:\n", whileCount);
+                      printf("MOV R8, %s\n", destination);}
+                      LESS operand {printf("MOV R7, %d\n", destination);
+                                    printf("CMP R7\n");
+                                    printf("BGE end%d\n", endCount);
+                                    }
             | operand LEQ operand {printf("wtop%d:\n", whileCount);
                                    printf("MOV R8, %s\n", destination);
                                    printf("MOV R7, %d\n", valDest);
@@ -126,7 +126,7 @@ ifcondition: operand LESS operand {printf("MOV R8, %s\n", destination);
                                      printf("BEQ else%d\n", elseCount);}
 
 operand:    VAR {strcpy(destination, varname);}
-            | NUM {valDest = $1;}
+            | NUM {destination = $1;}
 
 %%  
 
