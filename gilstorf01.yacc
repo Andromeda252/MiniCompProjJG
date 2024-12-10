@@ -21,6 +21,20 @@
 
 %token <ival> NUM
 %token WHILE DO ENDWHILE IF THEN ELSE ENDIF LESS LEQ GREATER GEQ NEQ EQUAL ASSIGN PLUS MINUS SEMI OPAREN CPAREN VAR JUNK
+%define api.pure full
+%define parse.error verbose
+
+%{
+    #define YYLTYPE_IS_DECLARED 1
+    typedef struct YYLTYPE {
+        int first_line;
+        int first_column;
+        int last_line;
+        int last_column;
+    } YYLTYPE;
+%}
+
+%locations
 
 %%
 
@@ -135,7 +149,7 @@ int main()
     yyparse();
 }
 
-void yyerror (char *msg)
+void yyerror (const char *msg)
 {
-    printf("%s line %d\n", msg, yylineno);
+    printf(stderr, "%s line %d\n", msg, yyloc.first_line);
 }
